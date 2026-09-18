@@ -1,0 +1,41 @@
+# training artifacts / checkpoints
+runs/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# large / regenerable data
+data/wenet_ms.jsonl
+data/wenet_ms.offsets.npy
+data/wenet_s.jsonl
+data/wenet_s.offsets.npy
+data/chat_wavs/
+data/*.wav
+data/**/*.wav
+data/**/*.opus
+data/**/*.mp3
+
+# caches / local junk
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+
+# logs / scratch
+tmp/
+*.log
+nohup.out
+.DS_Store
+*.swp
+.idea/
+.vscode/
