@@ -1,0 +1,17 @@
+{
+  "n": 6700,
+  "buckets": {
+    "fc": 2500,
+    "chat": 1700,
+    "asr": 2500
+  },
+  "engines": {
+    "index_clone": 1017,
+    "qwen_design": 1331,
+    "edge": 2040,
+    "qwen_clone": 962,
+    "qwen_custom": 1350
+  },
+  "asr_traps": 375,
+  "clone_refs": 16
+}

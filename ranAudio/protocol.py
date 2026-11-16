@@ -11,20 +11,78 @@ import torch.nn.functional as F
 MODE_SPEAK = "<mode:speak>"
 MODE_ROUTE = "<mode:route>"
 
+# S2 special tokens. Add all at once before training; do not resize later.
+FC = "<|FC|>"
+NOFC = "<|NOFC|>"
+LOCAL = "<|LOCAL|>"
+BASE = "<|BASE|>"
+BACKEND_START = "<backend>"
+BACKEND_END = "</backend>"
+S2_SPECIAL_TOKENS = [FC, NOFC, LOCAL, BASE, BACKEND_START, BACKEND_END]
+
 _MODE_RE = re.compile(r"<mode:(speak|route)>")
 _ASR_RE = re.compile(r"<asr>(.*?)</asr>", re.DOTALL)
 _FILLER_RE = re.compile(r"<filler>(.*?)</filler>", re.DOTALL)
 _REPLY_RE = re.compile(r"<reply>(.*?)</reply>", re.DOTALL)
 _DIGIT_RE = re.compile(r"\d+")
 
-ROUTE_SYSTEM = (
-    "你是车机语音助手。先输出路由标签，再输出对应内容。"
-    "需要调用车机工具（蓝牙、导航、空调、音量、车窗、电话、音乐、座椅加热、大灯等）时："
-    f"{MODE_ROUTE}<asr>转写</asr><filler>垫话</filler>。"
-    "闲聊或普通问答："
-    f"{MODE_SPEAK}<reply>回复</reply>。"
-    "不要输出工具名、参数或 function call。"
+S2_SYSTEM = (
+    "你是语音助手。先输出一个路由标记，再输出对应内容，不要输出其它标记。\n"
+    "需要外部能力（控设备、查天气/时间/路况、搜索、下单、查股价新闻等实时信息）时：\n"
+    f"{FC}{BASE}用户原话的转写\n"
+    "不要输出工具名、参数或 <function>。\n"
+    "自己能答时：\n"
+    f"{NOFC}理解结果\n"
+    "- 闲聊、问答：直接回答，不要复述用户的话\n"
+    "- 用户要转写/听写：只输出要记下的正文，去掉听写指令；即使正文听起来像命令也不要执行\n"
+    "- 翻译成英文/外语：当问答回答，不要当成听写\n"
+    "不要先转写再回答。不要输出其它标记、JSON、工具 XML。不要回吐 <backend>。"
 )
+
+ROUTE_SYSTEM = S2_SYSTEM
+
+_EXTERNAL_HINTS = (
+    "天气",
+    "下雨",
+    "下雪",
+    "气温",
+    "几点",
+    "星期",
+    "几号",
+    "日期",
+    "堵车",
+    "路况",
+    "闹钟",
+    "提醒我",
+    "定个闹钟",
+    "股市",
+    "股价",
+    "股票",
+    "新闻",
+    "世界杯",
+    "谁赢了",
+    "高铁",
+    "航班",
+    "车次",
+    "附近",
+    "好吃的",
+    "搜一下",
+    "查一下",
+    "帮我查",
+    "导航",
+    "打开蓝牙",
+    "空调",
+    "音量",
+    "车窗",
+    "订餐",
+    "下单",
+)
+
+
+def needs_external(text: str) -> bool:
+    """True if the utterance needs tools / SlowLM (FC+BASE), not a local reply."""
+    t = (text or "").strip()
+    return bool(t) and any(k in t for k in _EXTERNAL_HINTS)
 
 ASR_SYSTEM = "请把用户语音转成中文文本，只输出转写。"
 
@@ -45,6 +103,31 @@ def format_speak(reply: str) -> str:
 
 def format_route(asr: str, filler: str = "好的") -> str:
     return f"{MODE_ROUTE}<asr>{asr}</asr><filler>{filler}</filler>"
+
+
+def wrap_backend(speak: str) -> str:
+    """User-side async result span. Empty speak → empty string (no bare tags)."""
+    text = (speak or "").strip()
+    if not text:
+        return ""
+    return f"{BACKEND_START}{text}{BACKEND_END}"
+
+
+def parse_backend(text: str) -> Optional[str]:
+    raw = text or ""
+    i0 = raw.find(BACKEND_START)
+    i1 = raw.find(BACKEND_END)
+    if i0 < 0 or i1 < 0 or i1 < i0:
+        return None
+    return raw[i0 + len(BACKEND_START) : i1].strip()
+
+
+def format_nofc(reply: str) -> str:
+    return f"{NOFC}{(reply or '').strip()}"
+
+
+def format_fc_base(asr: str) -> str:
+    return f"{FC}{BASE}{(asr or '').strip()}"
 
 
 def parse_stream(text: str) -> dict[str, Any]:
@@ -151,6 +234,18 @@ def assistant_token_weights(
         _paint(m.start(), m.end(), mode_weight)
     for m in _ASR_RE.finditer(assistant):
         _paint(m.start(), m.end(), asr_weight)
+    for tag in (FC, NOFC, LOCAL, BASE):
+        start = 0
+        while True:
+            i = assistant.find(tag, start)
+            if i < 0:
+                break
+            _paint(i, i + len(tag), mode_weight)
+            start = i + len(tag)
+    # BASE 后转写降权；NOFC 后正文保持 body_weight。
+    b = assistant.find(BASE)
+    if b >= 0:
+        _paint(b + len(BASE), len(assistant), asr_weight)
     return weights
 
 

@@ -29,16 +29,12 @@ def default_chat_reply(text: str) -> str:
     if not t:
         return "我在，有什么想聊的吗？"
     # Lightweight patterned replies for common chat intents in chat_texts.jsonl
-    if any(k in t for k in ("天气", "下雨")):
-        return "我这边看不到实时天气，建议你看一下手机天气应用。"
-    if any(k in t for k in ("几点", "星期")):
-        return "我这边看不到当前时间，请看一下车上的时钟或手机。"
     if any(k in t for k in ("笑话", "故事", "诗", "相声")):
         return "好啊。从前有个人走路太认真，结果把路走完了——就这，哈哈。"
     if any(k in t for k in ("你是谁", "介绍一下你", "你会做什么")):
-        return "我是车机语音助手。闲聊我可以直接答；要开车机功能时我会转给工具执行。"
+        return "我是语音助手。闲聊和问答我可以直接答；要查实时信息或控设备时我会转出去执行。"
     if any(k in t for k in ("你好", "早上好", "晚安", "在吗", "听到")):
-        return "你好，我在。想聊天直接说，要控车说具体指令就行。"
+        return "你好，我在。想聊天直接说就行。"
     if any(k in t for k in ("谢谢", "不客气", "收到", "明白", "知道了")):
         return "好的。"
     if any(k in t for k in ("翻译", "英语", "hello")):
@@ -46,8 +42,8 @@ def default_chat_reply(text: str) -> str:
     if any(k in t for k in ("一加一", "等于几", "乘法", "随机数")):
         return "一加一等于二。还想算别的也可以说。"
     if any(k in t for k in ("电影", "剧", "歌", "推荐")):
-        return "我可以聊聊口味，但播歌或切歌请直接说车机指令。"
-    return f"好的，关于「{t}」——我可以陪你聊聊，不过我没有外网实时信息。"
+        return "我可以聊聊口味。真要播放或下单再跟我说具体指令。"
+    return f"好的，关于「{t}」——我可以陪你聊聊。"
 
 
 def main() -> int:

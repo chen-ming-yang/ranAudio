@@ -1,0 +1,9 @@
+{
+  "split": "smoke",
+  "path": "/cmy/cmy/ranAudio/kimi/eval_spoken2written/smoke_val.jsonl",
+  "n": 4,
+  "filler_changed": 2,
+  "cer_identity": 0.25,
+  "cer_strip_fillers": 0.0,
+  "note": "rules-only (strip_fillers). LLM path not run here. test=held-out."
+}

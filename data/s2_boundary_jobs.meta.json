@@ -1,0 +1,13 @@
+{
+  "n": 128,
+  "buckets": {
+    "chat": 62,
+    "fc": 54,
+    "asr": 12
+  },
+  "engines": {
+    "edge": 128
+  },
+  "asr_traps": 12,
+  "clone_refs": 16
+}

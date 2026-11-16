@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""S1.5: freeze MiniCPM5-2B, train SenseVoice encoder + new 512→2048 projector."""
+"""S1.5: train SenseVoice encoder + projector. 2B stays frozen unless --train-llm."""
 
 from __future__ import annotations
 
@@ -22,7 +22,9 @@ from ranAudio.model import (
     MiniCPM5Audio,
     freeze_except_projector,
     freeze_llm_train_encoder,
+    load_llm,
     save_encoder,
+    save_llm,
     save_projector,
 )
 from ranAudio.paths import MINICPM5, MINICPMO, RUNS_DIR, SENSEVOICE, WENET_S_JSONL
@@ -132,17 +134,22 @@ def _eval_cer(
     return mean
 
 
-def _restore_train_mode(model: MiniCPM5Audio, freeze_encoder: bool) -> None:
+def _restore_train_mode(model: MiniCPM5Audio, freeze_encoder: bool, train_llm: bool) -> None:
     model.train()
-    model.llm.eval()
+    if train_llm:
+        model.llm.train()
+    else:
+        model.llm.eval()
     if freeze_encoder:
         model.apm.eval()
 
 
-def _step_ckpt_paths(out_dir: Path, step: int, *, freeze_encoder: bool) -> list[Path]:
+def _step_ckpt_paths(out_dir: Path, step: int, *, freeze_encoder: bool, train_llm: bool) -> list[Path]:
     paths = [out_dir / f"projector_step{step}.pt"]
     if not freeze_encoder:
         paths.append(out_dir / f"encoder_step{step}.pt")
+    if train_llm:
+        paths.append(out_dir / f"llm_step{step}.safetensors")
     return paths
 
 
@@ -160,6 +167,7 @@ def _prune_step_ckpts(
     keep: int,
     *,
     freeze_encoder: bool,
+    train_llm: bool,
 ) -> None:
     """Keep the `keep` lowest-CER step checkpoints; delete the rest."""
     if keep <= 0 or not scored:
@@ -173,7 +181,9 @@ def _prune_step_ckpts(
             continue
         if step in keep_steps:
             continue
-        for victim in _step_ckpt_paths(out_dir, step, freeze_encoder=freeze_encoder):
+        for victim in _step_ckpt_paths(
+            out_dir, step, freeze_encoder=freeze_encoder, train_llm=train_llm
+        ):
             if victim.is_file():
                 victim.unlink()
                 print(f"pruned {victim.name}", flush=True)
@@ -198,11 +208,18 @@ def main() -> int:
     ap.add_argument("--encoder-backend", default="sensevoice")
     ap.add_argument("--sensevoice", default="")
     ap.add_argument("--encoder", default="", help="optional previous S1.5 encoder")
+    ap.add_argument(
+        "--resume-llm",
+        default="",
+        help="optional full llm safetensors (e.g. llm_best.safetensors)",
+    )
     ap.add_argument("--out-dir", default=str(RUNS_DIR / "s15_asr"))
     ap.add_argument("--epochs", type=int, default=1)
     ap.add_argument("--lr", type=float, default=1e-4, help="projector lr")
     ap.add_argument("--encoder-lr", type=float, default=1e-5)
+    ap.add_argument("--llm-lr", type=float, default=1e-5, help="used only with --train-llm")
     ap.add_argument("--freeze-encoder", action="store_true", help="S1.5a: train projector only")
+    ap.add_argument("--train-llm", action="store_true", help="also train MiniCPM5-2B")
     ap.add_argument("--min-dur", type=float, default=0.5)
     ap.add_argument("--max-dur", type=float, default=16.0)
     ap.add_argument("--accum", type=int, default=1, help="optimizer step every N batches")
@@ -267,27 +284,41 @@ def main() -> int:
         encoder_backend=args.encoder_backend,
         sensevoice_path=args.sensevoice or SENSEVOICE,
     )
-    if args.freeze_encoder:
+    if args.resume_llm:
+        llm_path = Path(args.resume_llm)
+        if not llm_path.is_file():
+            print(f"missing --resume-llm {llm_path}", flush=True)
+            return 1
+        load_llm(model, llm_path)
+        print(f"resume llm {llm_path}", flush=True)
+    if args.freeze_encoder and not args.train_llm:
         trainable = freeze_except_projector(model)
         opt = AdamW(trainable, lr=args.lr)
     else:
-        trainable = freeze_llm_train_encoder(model)
-        opt = AdamW(
-            [
-                {"params": list(model.apm.parameters()), "lr": args.encoder_lr},
-                {"params": list(model.projector.parameters()), "lr": args.lr},
-            ]
-        )
+        trainable = freeze_llm_train_encoder(model, train_llm=args.train_llm)
+        groups = [
+            {"params": list(model.apm.parameters()), "lr": args.encoder_lr},
+            {"params": list(model.projector.parameters()), "lr": args.lr},
+        ]
+        if args.train_llm:
+            groups.append(
+                {"params": [p for p in model.llm.parameters() if p.requires_grad], "lr": args.llm_lr}
+            )
+        opt = AdamW(groups)
     n_llm = _llm_trainable(model)
     print(
         f"trainable={sum(p.numel() for p in trainable):,} llm_trainable_tensors={n_llm} "
-        f"freeze_encoder={args.freeze_encoder} proj_lr={args.lr} enc_lr={args.encoder_lr}",
+        f"freeze_encoder={args.freeze_encoder} train_llm={args.train_llm} "
+        f"proj_lr={args.lr} enc_lr={args.encoder_lr} llm_lr={args.llm_lr}",
         flush=True,
     )
-    if n_llm:
+    if n_llm and not args.train_llm:
         print("refusing to train: 2B has requires_grad=True", flush=True)
         return 1
-    _restore_train_mode(model, args.freeze_encoder)
+    if args.train_llm and n_llm == 0:
+        print("refusing to train: --train-llm but 2B has no grad", flush=True)
+        return 1
+    _restore_train_mode(model, args.freeze_encoder, args.train_llm)
 
     eval_segs = _load_eval_segments(args.eval_split, args.eval_n)
     print(f"eval {args.eval_split} n={len(eval_segs)}", flush=True)
@@ -324,6 +355,8 @@ def main() -> int:
             save_projector(model, out_dir / f"projector_step{step}.pt")
             if not args.freeze_encoder:
                 save_encoder(model, out_dir / f"encoder_step{step}.pt")
+            if args.train_llm:
+                save_llm(model, out_dir / f"llm_step{step}.safetensors")
             print(f"saved step={step} -> {out_dir}", flush=True)
             if args.save_every:
                 next_save += args.save_every
@@ -334,7 +367,7 @@ def main() -> int:
                 log_path=out_dir / f"eval_step{step}.log",
                 step=step,
             )
-            _restore_train_mode(model, args.freeze_encoder)
+            _restore_train_mode(model, args.freeze_encoder, args.train_llm)
             print(f"eval step={step} cer={score}", flush=True)
             if score is not None:
                 scored_ckpts.append((float(score), step))
@@ -351,6 +384,12 @@ def main() -> int:
                             _link_best(enc_step, out_dir / "encoder_best.pt")
                         else:
                             save_encoder(model, out_dir / "encoder_best.pt")
+                    if args.train_llm:
+                        llm_step = out_dir / f"llm_step{step}.safetensors"
+                        if llm_step.is_file():
+                            _link_best(llm_step, out_dir / "llm_best.safetensors")
+                        else:
+                            save_llm(model, out_dir / "llm_best.safetensors")
                     (out_dir / "best.json").write_text(
                         json.dumps({"step": step, "cer": best_cer, "split": args.eval_split}, indent=2)
                     )
@@ -363,6 +402,7 @@ def main() -> int:
                 scored_ckpts,
                 args.keep_best,
                 freeze_encoder=args.freeze_encoder,
+                train_llm=args.train_llm,
             )
 
     for epoch in range(args.epochs):
@@ -387,6 +427,11 @@ def main() -> int:
             n_utt = int(batch.get("batch_size") or len(raw["wavs"]))
             step += n_utt
             if running_n % accum == 0:
+                if opt_steps == 0 and args.train_llm:
+                    n_grad = sum(p.grad is not None for p in model.llm.parameters())
+                    print(f"llm_grad_tensors={n_grad} (want >0)", flush=True)
+                    if n_grad == 0:
+                        raise SystemExit("2B backward produced no gradients")
                 torch.nn.utils.clip_grad_norm_(trainable, 1.0)
                 opt.step()
                 opt.zero_grad(set_to_none=True)
@@ -402,9 +447,6 @@ def main() -> int:
                 )
                 running = 0.0
                 running_n = 0
-            if opt_steps == 1 and n_utt:
-                bad = [n for n, p in model.llm.named_parameters() if p.grad is not None]
-                print(f"llm_grad_tensors={len(bad)} (want 0)", flush=True)
             _maybe_eval_and_save()
             if args.max_steps and step >= args.max_steps:
                 break
@@ -417,6 +459,8 @@ def main() -> int:
         opt.zero_grad(set_to_none=True)
 
     _maybe_eval_and_save(force=True)
+    if args.train_llm:
+        save_llm(model, out_dir / "llm_final.safetensors")
     print(f"done steps={step} opt_steps={opt_steps} best_cer={best_cer} -> {out_dir}", flush=True)
     return 0
 

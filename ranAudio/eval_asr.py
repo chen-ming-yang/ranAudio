@@ -32,6 +32,11 @@ def main() -> int:
     ap.add_argument("--encoder-backend", default="sensevoice")
     ap.add_argument("--sensevoice", default="")
     ap.add_argument("--adapter", default="")
+    ap.add_argument(
+        "--llm-weights",
+        default="",
+        help="full llm safetensors (e.g. llm_best.safetensors from S1.5 train-llm)",
+    )
     ap.add_argument("--max-samples", type=int, default=200)
     ap.add_argument("--also-car", action="store_true")
     ap.add_argument("--out-json", default=str(TMP_DIR / "minicpm5_asr_eval.json"))
@@ -47,10 +52,30 @@ def main() -> int:
         encoder_backend=args.encoder_backend,
         sensevoice_path=args.sensevoice or SENSEVOICE,
     )
-    if args.adapter and Path(args.adapter).is_dir():
-        from peft import PeftModel
+    llm_w = Path(args.llm_weights) if args.llm_weights else None
+    if llm_w and llm_w.is_file():
+        from safetensors.torch import load_file
 
-        model.llm = PeftModel.from_pretrained(model.llm, args.adapter)
+        sd = load_file(str(llm_w), device=str(model.device))
+        model.llm.load_state_dict(sd)
+        print(f"loaded full llm {llm_w}", flush=True)
+    elif args.adapter and Path(args.adapter).is_dir():
+        adapter = Path(args.adapter)
+        llm_ckpt = adapter / "llm_final.safetensors"
+        peft_cfg = adapter / "adapter_config.json"
+        if llm_ckpt.is_file():
+            from safetensors.torch import load_file
+
+            sd = load_file(str(llm_ckpt), device=str(model.device))
+            model.llm.load_state_dict(sd)
+            print(f"loaded full llm {llm_ckpt}", flush=True)
+        elif peft_cfg.is_file() or (adapter / "adapter_model.safetensors").is_file():
+            from peft import PeftModel
+
+            model.llm = PeftModel.from_pretrained(model.llm, str(adapter))
+            print(f"loaded adapter {adapter}", flush=True)
+        else:
+            print(f"warn: no llm/adapter weights under {adapter}", flush=True)
     model.eval()
 
     results = []

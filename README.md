@@ -137,4 +137,5 @@ $PY -m ranAudio.sweep_asr_weight --max-samples 200 --max-steps 200
 | Align projector | `runs/align/projector.pt` |
 | S1.5 encoder/projector | `runs/s15_asr/` |
 | S2 route LoRA | `runs/s2_route/` |
+| S2 全参（当前） | `runs/s2_fc_nofc_full/mix_boundary/` |
 | 评测 JSON | `tmp/` |

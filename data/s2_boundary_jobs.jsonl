@@ -1,0 +1,128 @@
+{"id": "s2b_chat_0000", "bucket": "chat", "kind": "chat", "user": "背一首春晓", "reply": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0001", "bucket": "chat", "kind": "chat", "user": "背一下春晓", "reply": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0002", "bucket": "chat", "kind": "chat", "user": "来一首春晓", "reply": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0003", "bucket": "chat", "kind": "chat", "user": "念一下春晓", "reply": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0004", "bucket": "chat", "kind": "chat", "user": "你会背春晓吗", "reply": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。这是《春晓》。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0005", "bucket": "chat", "kind": "chat", "user": "背一首登鹳雀楼", "reply": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0006", "bucket": "chat", "kind": "chat", "user": "背一下登鹳雀楼", "reply": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0007", "bucket": "chat", "kind": "chat", "user": "来一首登鹳雀楼", "reply": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0008", "bucket": "chat", "kind": "chat", "user": "念一下登鹳雀楼", "reply": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0009", "bucket": "chat", "kind": "chat", "user": "你会背登鹳雀楼吗", "reply": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。这是《登鹳雀楼》。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0010", "bucket": "chat", "kind": "chat", "user": "背一首悯农", "reply": "锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0011", "bucket": "chat", "kind": "chat", "user": "背一下悯农", "reply": "锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0012", "bucket": "chat", "kind": "chat", "user": "来一首悯农", "reply": "锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0013", "bucket": "chat", "kind": "chat", "user": "念一下悯农", "reply": "锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0014", "bucket": "chat", "kind": "chat", "user": "你会背悯农吗", "reply": "锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。这是《悯农》。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0015", "bucket": "chat", "kind": "chat", "user": "背一首咏鹅", "reply": "鹅鹅鹅，曲项向天歌。白毛浮绿水，红掌拨清波。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0016", "bucket": "chat", "kind": "chat", "user": "背一下咏鹅", "reply": "鹅鹅鹅，曲项向天歌。白毛浮绿水，红掌拨清波。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0017", "bucket": "chat", "kind": "chat", "user": "来一首咏鹅", "reply": "鹅鹅鹅，曲项向天歌。白毛浮绿水，红掌拨清波。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0018", "bucket": "chat", "kind": "chat", "user": "念一下咏鹅", "reply": "鹅鹅鹅，曲项向天歌。白毛浮绿水，红掌拨清波。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0019", "bucket": "chat", "kind": "chat", "user": "你会背咏鹅吗", "reply": "鹅鹅鹅，曲项向天歌。白毛浮绿水，红掌拨清波。这是《咏鹅》。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0020", "bucket": "chat", "kind": "chat", "user": "背一首静夜思", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0021", "bucket": "chat", "kind": "chat", "user": "背一下静夜思", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0022", "bucket": "chat", "kind": "chat", "user": "来一首静夜思", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0023", "bucket": "chat", "kind": "chat", "user": "念一下静夜思", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0024", "bucket": "chat", "kind": "chat", "user": "你会背静夜思吗", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。这是《静夜思》。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0025", "bucket": "chat", "kind": "chat", "user": "背一首绝句", "reply": "两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0026", "bucket": "chat", "kind": "chat", "user": "背一下绝句", "reply": "两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0027", "bucket": "chat", "kind": "chat", "user": "来一首绝句", "reply": "两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0028", "bucket": "chat", "kind": "chat", "user": "念一下绝句", "reply": "两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0029", "bucket": "chat", "kind": "chat", "user": "你会背绝句吗", "reply": "两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。这是《绝句》。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0030", "bucket": "chat", "kind": "chat", "user": "你会背古诗吗", "reply": "会。你点一首，比如春晓、静夜思、咏鹅，我背给你。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0031", "bucket": "chat", "kind": "chat", "user": "再背一遍静夜思", "reply": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0032", "bucket": "chat", "kind": "chat", "user": "你会不会下棋", "reply": "会一点。五子棋、象棋都可以陪你下，你先走。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0033", "bucket": "chat", "kind": "chat", "user": "你会下棋吗", "reply": "会。想下五子棋还是象棋？", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0034", "bucket": "chat", "kind": "chat", "user": "咱们下盘棋吧", "reply": "好，下五子棋。你先落一子。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0035", "bucket": "chat", "kind": "chat", "user": "你会下象棋吗", "reply": "会。红先黑后，你执红先走。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0036", "bucket": "chat", "kind": "chat", "user": "你会不会下象棋", "reply": "会。车马炮我都认识，你先走。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0037", "bucket": "chat", "kind": "chat", "user": "你会下围棋吗", "reply": "会一点。你先落黑子，我跟。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0038", "bucket": "chat", "kind": "chat", "user": "教我下棋", "reply": "先从五子棋开始：连成五子就赢。你先下。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0039", "bucket": "chat", "kind": "chat", "user": "五子棋怎么下", "reply": "两人轮流落子，先把五颗连成一线的赢。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0040", "bucket": "chat", "kind": "chat", "user": "你会不会下五子棋", "reply": "会。你先下，我跟。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0041", "bucket": "chat", "kind": "chat", "user": "来下盘象棋", "reply": "好。你执红，先走。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0042", "bucket": "chat", "kind": "chat", "user": "你下棋厉害吗", "reply": "一般。陪你下没问题，你先走。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0043", "bucket": "chat", "kind": "chat", "user": "陪我下盘棋", "reply": "好。五子棋，你先落子。", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0044", "bucket": "chat", "kind": "chat", "user": "象棋怎么走马", "reply": "马走日，蹩腿不能跳。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0045", "bucket": "chat", "kind": "chat", "user": "围棋入门怎么下", "reply": "黑先白后，围住地盘多的赢。先记住气。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0046", "bucket": "chat", "kind": "chat", "user": "你会玩五子棋吗", "reply": "会。棋盘上连五子就赢，你先下。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0047", "bucket": "chat", "kind": "chat", "user": "三加五等于几", "reply": "三加五等于八。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0048", "bucket": "chat", "kind": "chat", "user": "七加六是多少", "reply": "七加六等于十三。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0049", "bucket": "chat", "kind": "chat", "user": "九减四等于几", "reply": "九减四等于五。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0050", "bucket": "chat", "kind": "chat", "user": "六乘七是多少", "reply": "六乘七等于四十二。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0051", "bucket": "chat", "kind": "chat", "user": "二十除以四等于几", "reply": "二十除以四等于五。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_chat_0052", "bucket": "chat", "kind": "chat", "user": "八加九等于几", "reply": "八加九等于十七。", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_chat_0053", "bucket": "chat", "kind": "chat", "user": "十五减六等于几", "reply": "十五减六等于九。", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_chat_0054", "bucket": "chat", "kind": "chat", "user": "四乘四是多少", "reply": "四乘四等于十六。", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_chat_0055", "bucket": "chat", "kind": "chat", "user": "一百除以五等于几", "reply": "一百除以五等于二十。", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_chat_0056", "bucket": "chat", "kind": "chat", "user": "你会算数吗", "reply": "会。加减乘除你直接说，我口算给你。", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_chat_0057", "bucket": "chat", "kind": "chat", "user": "二加八等于几", "reply": "二加八等于十。", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_chat_0058", "bucket": "chat", "kind": "chat", "user": "十一加九等于几", "reply": "十一加九等于二十。", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_chat_0059", "bucket": "chat", "kind": "chat", "user": "三十减十二等于几", "reply": "三十减十二等于十八。", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_chat_0060", "bucket": "chat", "kind": "chat", "user": "五乘六是多少", "reply": "五乘六等于三十。", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_chat_0061", "bucket": "chat", "kind": "chat", "user": "四十八除以六等于几", "reply": "四十八除以六等于八。", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0000", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0001", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份牛肉拉面", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0002", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份兰州拉面", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0003", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份炒饭", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_fc_0004", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份蛋炒饭", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_fc_0005", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份盖浇饭", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_fc_0006", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份饺子", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_fc_0007", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份宫保鸡丁", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_fc_0008", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份黄焖鸡", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_fc_0009", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份麻辣烫", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0010", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份米线", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0011", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份馄饨", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0012", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份小笼包", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0013", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份汉堡", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_fc_0014", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份奶茶", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_fc_0015", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份美式咖啡", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_fc_0016", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份豆浆", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_fc_0017", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份酸菜鱼", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_fc_0018", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份西红柿鸡蛋面", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_fc_0019", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份炸鸡", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0020", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0021", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份牛肉拉面", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0022", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份兰州拉面", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0023", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份炒饭", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_fc_0024", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份蛋炒饭", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_fc_0025", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份盖浇饭", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_fc_0026", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份饺子", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_fc_0027", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份宫保鸡丁", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_fc_0028", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份黄焖鸡", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_fc_0029", "bucket": "fc", "kind": null, "venue": "base", "user": "下单一份麻辣烫", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0030", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0031", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份牛肉拉面", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0032", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份兰州拉面", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0033", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份炒饭", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_fc_0034", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份蛋炒饭", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_fc_0035", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份盖浇饭", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_fc_0036", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份饺子", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_fc_0037", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份宫保鸡丁", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_fc_0038", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份黄焖鸡", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_fc_0039", "bucket": "fc", "kind": null, "venue": "base", "user": "我要下单一份麻辣烫", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0040", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0041", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份牛肉拉面", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0042", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份兰州拉面", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0043", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份炒饭", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_fc_0044", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份蛋炒饭", "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_fc_0045", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份盖浇饭", "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_fc_0046", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份饺子", "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_fc_0047", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份宫保鸡丁", "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_fc_0048", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份黄焖鸡", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_fc_0049", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐一份麻辣烫", "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_fc_0050", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单两份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_fc_0051", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一碗牛肉面", "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_fc_0052", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我下单一份牛肉面外卖", "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_fc_0053", "bucket": "fc", "kind": null, "venue": "base", "user": "帮我订餐，来一份牛肉面", "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_asr_0000", "bucket": "asr", "kind": "asr", "user": "请转写 帮我下单一份牛肉面", "body": "帮我下单一份牛肉面", "trap": true, "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_asr_0001", "bucket": "asr", "kind": "asr", "user": "帮我转写：帮我下单一份炒饭", "body": "帮我下单一份炒饭", "trap": true, "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}
+{"id": "s2b_asr_0002", "bucket": "asr", "kind": "asr", "user": "转写成文字，帮我下单一份奶茶", "body": "帮我下单一份奶茶", "trap": true, "engine": "edge", "voice": "zh-TW-HsiaoChenNeural", "source": "boundary"}
+{"id": "s2b_asr_0003", "bucket": "asr", "kind": "asr", "user": "写成文字：下单一份饺子", "body": "下单一份饺子", "trap": true, "engine": "edge", "voice": "zh-TW-YunJheNeural", "source": "boundary"}
+{"id": "s2b_asr_0004", "bucket": "asr", "kind": "asr", "user": "转成文字 帮我订餐一份黄焖鸡", "body": "帮我订餐一份黄焖鸡", "trap": true, "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural", "source": "boundary"}
+{"id": "s2b_asr_0005", "bucket": "asr", "kind": "asr", "user": "帮我记一下背一首春晓", "body": "背一首春晓", "trap": true, "engine": "edge", "voice": "zh-CN-XiaoyiNeural", "source": "boundary"}
+{"id": "s2b_asr_0006", "bucket": "asr", "kind": "asr", "user": "记下来你会不会下棋", "body": "你会不会下棋", "trap": true, "engine": "edge", "voice": "zh-CN-YunxiNeural", "source": "boundary"}
+{"id": "s2b_asr_0007", "bucket": "asr", "kind": "asr", "user": "翻译成文字，三加五等于几", "body": "三加五等于几", "trap": true, "engine": "edge", "voice": "zh-CN-YunyangNeural", "source": "boundary"}
+{"id": "s2b_asr_0008", "bucket": "asr", "kind": "asr", "user": "把我说的话写成字，打开蓝牙", "body": "打开蓝牙", "trap": true, "engine": "edge", "voice": "zh-CN-YunjianNeural", "source": "boundary"}
+{"id": "s2b_asr_0009", "bucket": "asr", "kind": "asr", "user": "请转写今天天气怎么样", "body": "今天天气怎么样", "trap": true, "engine": "edge", "voice": "zh-CN-YunxiaNeural", "source": "boundary"}
+{"id": "s2b_asr_0010", "bucket": "asr", "kind": "asr", "user": "帮我转写 导航去公司", "body": "导航去公司", "trap": true, "engine": "edge", "voice": "zh-CN-liaoning-XiaobeiNeural", "source": "boundary"}
+{"id": "s2b_asr_0011", "bucket": "asr", "kind": "asr", "user": "转写成文字：把空调调到二十六度", "body": "把空调调到二十六度", "trap": true, "engine": "edge", "voice": "zh-CN-shaanxi-XiaoniNeural", "source": "boundary"}

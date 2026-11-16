@@ -1,0 +1,25 @@
+Copyright (c) 2026 Tier-A Agree3 contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this dataset metadata (the JSONL manifests and accompanying documentation)
+to use, copy, modify, merge, publish, distribute, and/or sublicense copies of
+the metadata, subject to the following conditions:
+
+1. WenetSpeech audio and original annotations are NOT included in this package.
+   Users must obtain WenetSpeech from its official source and comply with its
+   license terms (including but not limited to CC-BY-4.0 as stated by
+   WenetSpeech authors) when using the audio.
+
+2. Transcriptions produced by third-party ASR models (Qwen3-ASR, FireRedASR2,
+   etc.) are included only as metadata for consensus filtering. Use of those
+   models and any redistributed model outputs must also comply with the
+   respective model licenses and terms of use.
+
+3. THE METADATA IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+   FROM USE OF THE METADATA.
+
+Attribution: when redistributing or publishing results based on this package,
+please cite WenetSpeech and this Tier-A Agree3 release (see CITATION.md).

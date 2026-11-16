@@ -15,6 +15,7 @@ from transformers.models.whisper.feature_extraction_whisper import WhisperFeatur
 from transformers.models.whisper.modeling_whisper import WhisperEncoder
 
 from ranAudio.paths import MINICPM5, MINICPMO, SENSEVOICE
+from ranAudio.protocol import BACKEND_END, BACKEND_START, S2_SPECIAL_TOKENS, wrap_backend
 from ranAudio.sensevoice_apm import SenseVoiceAPM
 from ranAudio.tools import fc_system_prompt, format_tool_xml
 
@@ -22,7 +23,22 @@ AUDIO_START = "<|audio_start|>"
 AUDIO_PAD = "<|audio_pad|>"
 AUDIO_END = "<|audio_end|>"
 AUDIO_TOKENS = [AUDIO_START, AUDIO_PAD, AUDIO_END]
+CHAT_SPECIAL_TOKENS = AUDIO_TOKENS + [t for t in S2_SPECIAL_TOKENS if t not in AUDIO_TOKENS]
 POOL_STEP = 5
+
+
+def build_user_content(
+    *,
+    n_audio: int = 0,
+    user_text: Optional[str] = None,
+    backend: Optional[str] = None,
+) -> str:
+    """User slot: T2T `user_text`, or optional `<backend>` + audio pads."""
+    if user_text is not None:
+        return user_text
+    audio = AUDIO_START + (AUDIO_PAD * n_audio) + AUDIO_END
+    span = wrap_backend(backend or "")
+    return f"{span}{audio}" if span else audio
 
 
 class MultiModalProjector(nn.Module):
@@ -128,18 +144,30 @@ class MiniCPM5Audio(nn.Module):
         encoder_path: Optional[str | Path] = None,
         encoder_backend: str = "sensevoice",
         sensevoice_path: str | Path = SENSEVOICE,
+        tokenizer=None,
     ) -> "MiniCPM5Audio":
         llm_path = Path(llm_path)
         apm_path = Path(apm_path)
-        tok = AutoTokenizer.from_pretrained(str(llm_path), trust_remote_code=True)
-        added = tok.add_special_tokens({"additional_special_tokens": AUDIO_TOKENS})
-        llm = AutoModelForCausalLM.from_pretrained(
-            str(llm_path),
-            dtype=dtype,
-            trust_remote_code=True,
-        )
-        if added > 0:
-            llm.resize_token_embeddings(len(tok))
+        if tokenizer is None:
+            tok = AutoTokenizer.from_pretrained(str(llm_path), trust_remote_code=True)
+            added = tok.add_special_tokens({"additional_special_tokens": CHAT_SPECIAL_TOKENS})
+            llm = AutoModelForCausalLM.from_pretrained(
+                str(llm_path),
+                dtype=dtype,
+                trust_remote_code=True,
+            )
+            if added > 0:
+                llm.resize_token_embeddings(len(tok))
+        else:
+            tok = tokenizer
+            added = 0
+            llm = AutoModelForCausalLM.from_pretrained(
+                str(llm_path),
+                dtype=dtype,
+                trust_remote_code=True,
+            )
+            if llm.get_input_embeddings().num_embeddings != len(tok):
+                llm.resize_token_embeddings(len(tok))
         llm.to(device)
         fe = None
         pool_step = POOL_STEP
@@ -242,11 +270,9 @@ class MiniCPM5Audio(nn.Module):
         add_generation_prompt: bool = False,
         system: Optional[str] = None,
         user_text: Optional[str] = None,
+        backend: Optional[str] = None,
     ) -> str:
-        if user_text is not None:
-            user_content = user_text
-        else:
-            user_content = AUDIO_START + (AUDIO_PAD * n_audio) + AUDIO_END
+        user_content = build_user_content(n_audio=n_audio, user_text=user_text, backend=backend)
         messages: list[dict[str, Any]] = [
             {"role": "system", "content": system or fc_system_prompt()},
             {"role": "user", "content": user_content},
@@ -286,14 +312,25 @@ class MiniCPM5Audio(nn.Module):
         assistant: str,
         tools: Optional[list[dict]] = None,
         system: Optional[str] = None,
+        backend: Optional[str] = None,
     ) -> dict[str, torch.Tensor]:
         audio_embeds = self.encode_wav(wav)
         n = int(audio_embeds.shape[0])
         full = self._apply_chat(
-            n_audio=n, tools=tools, assistant=assistant, add_generation_prompt=False, system=system
+            n_audio=n,
+            tools=tools,
+            assistant=assistant,
+            add_generation_prompt=False,
+            system=system,
+            backend=backend,
         )
         prefix = self._apply_chat(
-            n_audio=n, tools=tools, assistant=None, add_generation_prompt=True, system=system
+            n_audio=n,
+            tools=tools,
+            assistant=None,
+            add_generation_prompt=True,
+            system=system,
+            backend=backend,
         )
         if not full.startswith(prefix):
             raise RuntimeError("chat template prefix/full mismatch")
@@ -324,20 +361,35 @@ class MiniCPM5Audio(nn.Module):
         assistants: list[str],
         tools: Optional[list[dict]] = None,
         system: Optional[str] = None,
+        backends: Optional[list[Optional[str]]] = None,
     ) -> dict[str, torch.Tensor]:
         """Batched teacher force. Pads to the longest chat+audio sequence in the batch."""
         audio_list = self.encode_wavs(wavs)
+        if backends is None:
+            backends = [None] * len(wavs)
+        if len(backends) != len(wavs):
+            raise ValueError(f"backends={len(backends)} != wavs={len(wavs)}")
         rows_emb: list[torch.Tensor] = []
         rows_lab: list[torch.Tensor] = []
         n_label = 0
         pad_id = self.tokenizer.pad_token_id
-        for audio, assistant in zip(audio_list, assistants):
+        for audio, assistant, backend in zip(audio_list, assistants, backends):
             n = int(audio.shape[0])
             full = self._apply_chat(
-                n_audio=n, tools=tools, assistant=assistant, add_generation_prompt=False, system=system
+                n_audio=n,
+                tools=tools,
+                assistant=assistant,
+                add_generation_prompt=False,
+                system=system,
+                backend=backend,
             )
             prefix = self._apply_chat(
-                n_audio=n, tools=tools, assistant=None, add_generation_prompt=True, system=system
+                n_audio=n,
+                tools=tools,
+                assistant=None,
+                add_generation_prompt=True,
+                system=system,
+                backend=backend,
             )
             full_ids = self.tokenizer(full, add_special_tokens=False, return_tensors="pt")["input_ids"][0].to(
                 self.device
@@ -386,12 +438,18 @@ class MiniCPM5Audio(nn.Module):
         tools: Optional[list[dict]] = None,
         system: Optional[str] = None,
         max_new_tokens: int = 256,
+        backend: Optional[str] = None,
     ) -> str:
         self.eval()
         audio_embeds = self.encode_wav(wav)
         n = int(audio_embeds.shape[0])
         prefix = self._apply_chat(
-            n_audio=n, tools=tools, assistant=None, add_generation_prompt=True, system=system
+            n_audio=n,
+            tools=tools,
+            assistant=None,
+            add_generation_prompt=True,
+            system=system,
+            backend=backend,
         )
         input_ids = self.tokenizer(prefix, add_special_tokens=False, return_tensors="pt")["input_ids"].to(self.device)
         inputs_embeds = self._embed_ids(input_ids, audio_embeds)
@@ -401,7 +459,8 @@ class MiniCPM5Audio(nn.Module):
             attention_mask=attn,
             max_new_tokens=max_new_tokens,
             do_sample=False,
-            pad_token_id=self.tokenizer.eos_token_id,
+            eos_token_id=self._stop_token_ids(),
+            pad_token_id=self.tokenizer.pad_token_id,
         )
         # generate with inputs_embeds returns only new tokens on some versions, full on others
         if out.shape[1] > input_ids.shape[1] and torch.equal(out[:, : input_ids.shape[1]], input_ids):
@@ -412,9 +471,23 @@ class MiniCPM5Audio(nn.Module):
         # would leave only ` name="enable_bluetooth">` and break XML parse.
         return self._decode_new(new_ids)
 
+    def _stop_token_ids(self) -> list[int]:
+        """Stop on the chat end token. The tokenizer eos is `</s>`, which this template does not emit."""
+        ids: list[int] = []
+        unk = getattr(self.tokenizer, "unk_token_id", None)
+        for tok in ("<|im_end|>", self.tokenizer.eos_token):
+            if not tok:
+                continue
+            tid = self.tokenizer.convert_tokens_to_ids(tok)
+            if isinstance(tid, int) and tid >= 0 and tid != unk and tid not in ids:
+                ids.append(tid)
+        return ids or [int(self.tokenizer.eos_token_id)]
+
     def _decode_new(self, new_ids: torch.Tensor) -> str:
         text = self.tokenizer.decode(new_ids[0], skip_special_tokens=False)
         drop = list(AUDIO_TOKENS) + [
+            BACKEND_START,
+            BACKEND_END,
             "<|im_start|>",
             "<|im_end|>",
             "<|endoftext|>",
@@ -451,7 +524,8 @@ class MiniCPM5Audio(nn.Module):
             attention_mask=attn,
             max_new_tokens=max_new_tokens,
             do_sample=False,
-            pad_token_id=self.tokenizer.eos_token_id,
+            eos_token_id=self._stop_token_ids(),
+            pad_token_id=self.tokenizer.pad_token_id,
         )
         if out.shape[1] > input_ids.shape[1] and torch.equal(out[:, : input_ids.shape[1]], input_ids):
             new_ids = out[:, input_ids.shape[1] :]
@@ -468,14 +542,17 @@ def freeze_except_projector(model: MiniCPM5Audio) -> list[nn.Parameter]:
     return [p for p in model.parameters() if p.requires_grad]
 
 
-def freeze_llm_train_encoder(model: MiniCPM5Audio) -> list[nn.Parameter]:
-    """S1.5: 2B frozen (no LoRA); encoder + projector trainable."""
+def freeze_llm_train_encoder(model: MiniCPM5Audio, *, train_llm: bool = False) -> list[nn.Parameter]:
+    """S1.5: encoder + projector trainable. 2B stays frozen unless train_llm."""
     for p in model.parameters():
         p.requires_grad = False
     for p in model.apm.parameters():
         p.requires_grad = True
     for p in model.projector.parameters():
         p.requires_grad = True
+    if train_llm:
+        for p in model.llm.parameters():
+            p.requires_grad = True
     return [p for p in model.parameters() if p.requires_grad]
 
 
@@ -487,6 +564,20 @@ def save_projector(model: MiniCPM5Audio, path: Path) -> None:
 def save_encoder(model: MiniCPM5Audio, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(model.apm.state_dict(), path)
+
+
+def save_llm(model: MiniCPM5Audio, path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    from safetensors.torch import save_file
+
+    save_file(model.llm.state_dict(), str(path))
+
+
+def load_llm(model: MiniCPM5Audio, path: str | Path) -> None:
+    from safetensors.torch import load_file
+
+    sd = load_file(str(path), device=str(model.device))
+    model.llm.load_state_dict(sd)
 
 
 def load_encoder(model: MiniCPM5Audio, path: str | Path) -> None:

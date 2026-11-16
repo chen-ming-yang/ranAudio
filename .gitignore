@@ -17,6 +17,22 @@ data/**/*.wav
 data/**/*.opus
 data/**/*.mp3
 
+# heavy local artifacts (kept on disk for migration, not in git)
+cdsd/results/
+kimi/models/
+kimi/eval_spoken2written/wavs/
+kimi/eval_spoken2written/expanded/
+kimi/**/wavs/
+kimi/**/wavs_human/
+kimi/**/sft_out/
+wenetSpeechL/outputs/
+wenetSpeechL/tier_A_10shards/
+wenetSpeechL/tier_A_open/data/
+wenetSpeechL/sample_manifest.jsonl
+wenetSpeechL/sample_manifest_rest90.jsonl
+Qwen3-ASR/*.whl
+*.whl
+
 # caches / local junk
 __pycache__/
 *.py[cod]
@@ -39,3 +55,13 @@ nohup.out
 *.swp
 .idea/
 .vscode/
+
+# nested repo (separate remote: chen-ming-yang/cdsd)
+cdsd/
+
+# 私钥与证书密钥（勿入库）
+*.pem
+!kimi/certs/cert.pem
+*.key
+*.p12
+*.pfx

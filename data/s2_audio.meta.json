@@ -1,0 +1,25 @@
+{
+  "n": 10625,
+  "buckets": {
+    "fc": 5577,
+    "chat": 2550,
+    "asr": 2498
+  },
+  "sources": {
+    "car": 2728,
+    "toolish": 350,
+    "chat_old": 450,
+    "tts_new": 6697,
+    "wenet_s": 400
+  },
+  "engines": {
+    "edge-tts": 3528,
+    "index_clone": 1017,
+    "qwen_design": 1331,
+    "edge": 2037,
+    "qwen_clone": 962,
+    "qwen_custom": 1350,
+    "None": 400
+  },
+  "out": "/cmy/cmy/ranAudio/data/s2_audio.jsonl"
+}

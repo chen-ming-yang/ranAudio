@@ -1,0 +1,124 @@
+{"id": "rep_001", "bucket": "replace", "draft": "打开窗帘", "instruction": "把窗帘变成服务器", "gold": "打开服务器", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "rep_002", "bucket": "replace", "draft": "打开车窗", "instruction": "把车窗改成空调", "gold": "打开空调", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "rep_003", "bucket": "replace", "draft": "导航去上海", "instruction": "把上海改成北京", "gold": "导航去北京", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "rep_004", "bucket": "replace", "draft": "播放周杰伦的歌", "instruction": "把周杰伦换成邓紫棋", "gold": "播放邓紫棋的歌", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "rep_005", "bucket": "replace", "draft": "把灯关掉", "instruction": "把灯改成空调", "gold": "把空调关掉", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "rep_006", "bucket": "replace", "draft": "设置闹钟七点", "instruction": "把七点改成八点", "gold": "设置闹钟八点", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "rep_007", "bucket": "replace", "draft": "查询沪深三百", "instruction": "把沪深三百改成上证指数", "gold": "查询上证指数", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "rep_008", "bucket": "replace", "draft": "打开微信", "instruction": "把微信换成支付宝", "gold": "打开支付宝", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "rep_009", "bucket": "replace", "draft": "明天去深圳出差", "instruction": "把深圳改成杭州", "gold": "明天去杭州出差", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "rep_010", "bucket": "replace", "draft": "搜索附近的咖啡馆", "instruction": "把咖啡馆改成健身房", "gold": "搜索附近的健身房", "strict": true, "notes": "实体替换", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰，语速中等"}
+{"id": "rep_011", "bucket": "replace", "draft": "发送消息给小明", "instruction": "把小明改成小红", "gold": "发送消息给小红", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "rep_012", "bucket": "replace", "draft": "播放轻音乐", "instruction": "把轻音乐换成流行音乐", "gold": "播放流行音乐", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "rep_013", "bucket": "replace", "draft": "把音量调到五十", "instruction": "把五十改成三十", "gold": "把音量调到三十", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "rep_014", "bucket": "replace", "draft": "预约明天上午的会议", "instruction": "把明天上午改成后天下午", "gold": "预约后天下午的会议", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "rep_015", "bucket": "replace", "draft": "打开客厅的灯", "instruction": "把客厅改成卧室", "gold": "打开卧室的灯", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "rep_016", "bucket": "replace", "draft": "导航到公司", "instruction": "把公司改成机场", "gold": "导航到机场", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "rep_017", "bucket": "replace", "draft": "提醒我吃药", "instruction": "把吃药改成开会", "gold": "提醒我开会", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "rep_018", "bucket": "replace", "draft": "翻译成英文", "instruction": "把英文改成日文", "gold": "翻译成日文", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "rep_019", "bucket": "replace", "draft": "打开浏览器", "instruction": "把浏览器换成计算器", "gold": "打开计算器", "strict": true, "notes": "实体替换", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "rep_020", "bucket": "replace", "draft": "查询明天天气", "instruction": "把明天改成后天", "gold": "查询后天天气", "strict": true, "notes": "实体替换", "engine": "qwen_design", "voice": "design", "instruct": "成年男声，平稳口语，语速稍慢"}
+{"id": "rep_021", "bucket": "replace", "draft": "拨打一二零", "instruction": "把一二零改成一一零", "gold": "拨打一一零", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "rep_022", "bucket": "replace", "draft": "关闭所有窗户", "instruction": "把窗户改成窗帘", "gold": "关闭所有窗帘", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "rep_023", "bucket": "replace", "draft": "把会议室改成线上", "instruction": "把会议室改成线上会议", "gold": "把线上会议改成线上", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "rep_024", "bucket": "replace", "draft": "播放白噪音", "instruction": "把白噪音换成雨声", "gold": "播放雨声", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "rep_025", "bucket": "replace", "draft": "打开飞行模式", "instruction": "把飞行模式改成勿扰模式", "gold": "打开勿扰模式", "strict": true, "notes": "实体替换", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "tog_001", "bucket": "toggle", "draft": "请把灯关掉", "instruction": "改成打开", "gold": "请把灯打开", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "tog_002", "bucket": "toggle", "draft": "打开蓝牙", "instruction": "改成关闭", "gold": "关闭蓝牙", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "tog_003", "bucket": "toggle", "draft": "关闭静音", "instruction": "改成打开静音", "gold": "打开静音", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "tog_004", "bucket": "toggle", "draft": "开始录音", "instruction": "改成停止录音", "gold": "停止录音", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "tog_005", "bucket": "toggle", "draft": "打开定位", "instruction": "改成关闭定位", "gold": "关闭定位", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "qwen_design", "voice": "design", "instruct": "青年女声，活泼一点，语速中等"}
+{"id": "tog_006", "bucket": "toggle", "draft": "关闭自动亮度", "instruction": "改成打开自动亮度", "gold": "打开自动亮度", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "tog_007", "bucket": "toggle", "draft": "暂停播放", "instruction": "改成继续播放", "gold": "继续播放", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "tog_008", "bucket": "toggle", "draft": "打开热点", "instruction": "改成关闭热点", "gold": "关闭热点", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "tog_009", "bucket": "toggle", "draft": "锁屏", "instruction": "改成解锁", "gold": "解锁", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "tog_010", "bucket": "toggle", "draft": "静音模式打开", "instruction": "改成关闭静音", "gold": "静音模式关闭", "strict": true, "metric": "cer", "notes": "极性/开关", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "di_001", "bucket": "delete", "draft": "帮我打开客厅的灯和空调", "instruction": "删掉和空调", "gold": "帮我打开客厅的灯", "strict": true, "metric": "cer", "notes": "delete", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "di_002", "bucket": "delete", "draft": "导航去上海浦东机场", "instruction": "去掉浦东", "gold": "导航去上海机场", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "di_003", "bucket": "delete", "draft": "提醒我明天下午三点开会", "instruction": "删掉下午三点", "gold": "提醒我明天开会", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "di_004", "bucket": "delete", "draft": "播放周杰伦的七里香", "instruction": "去掉七里香", "gold": "播放周杰伦的歌", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "di_005", "bucket": "delete", "draft": "发消息给张三说我到了", "instruction": "删掉说我到了", "gold": "发消息给张三", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰，语速中等"}
+{"id": "di_006", "bucket": "delete", "draft": "查询北京到上海的高铁票", "instruction": "去掉到上海", "gold": "查询北京的高铁票", "strict": true, "metric": "cer", "notes": "delete", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "di_007", "bucket": "insert", "draft": "打开灯", "instruction": "在灯前面加上客厅的", "gold": "打开客厅的灯", "strict": true, "metric": "cer", "notes": "insert", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "di_008", "bucket": "insert", "draft": "导航去机场", "instruction": "在机场前面加上浦东", "gold": "导航去浦东机场", "strict": true, "metric": "cer", "notes": "insert", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "di_009", "bucket": "insert", "draft": "设置闹钟", "instruction": "改成设置明天早上七点的闹钟", "gold": "设置明天早上七点的闹钟", "strict": true, "metric": "cer", "notes": "insert", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "di_010", "bucket": "insert", "draft": "发消息给小明", "instruction": "后面加上说我晚点到", "gold": "发消息给小明说我晚点到", "strict": true, "metric": "cer", "notes": "insert", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "di_011", "bucket": "insert", "draft": "播放音乐", "instruction": "改成播放轻音乐", "gold": "播放轻音乐", "strict": true, "metric": "cer", "notes": "insert", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "di_012", "bucket": "insert", "draft": "查天气", "instruction": "改成查询明天北京的天气", "gold": "查询明天北京的天气", "strict": true, "metric": "cer", "notes": "insert", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "di_013", "bucket": "delete", "draft": "把音量调到五十百分之", "instruction": "删掉百分之", "gold": "把音量调到五十", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "di_014", "bucket": "insert", "draft": "开会", "instruction": "改成明天下午两点开会", "gold": "明天下午两点开会", "strict": true, "metric": "cer", "notes": "insert", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "di_015", "bucket": "delete", "draft": "请帮我打开一下微信", "instruction": "删掉一下", "gold": "请帮我打开微信", "strict": true, "metric": "cer", "notes": "delete", "engine": "qwen_design", "voice": "design", "instruct": "成年男声，平稳口语，语速稍慢"}
+{"id": "fix_001", "bucket": "asr_fix", "draft": "打开春宵", "instruction": "把春宵改成春晓", "gold": "打开春晓", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "fix_002", "bucket": "asr_fix", "draft": "查询护身三百", "instruction": "把护身改成沪深", "gold": "查询沪深三百", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "fix_003", "bucket": "asr_fix", "draft": "导航去西门机场", "instruction": "把西门改成厦门", "gold": "导航去厦门机场", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "fix_004", "bucket": "asr_fix", "draft": "打开氛围等", "instruction": "把氛围等改成氛围灯", "gold": "打开氛围灯", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "fix_005", "bucket": "asr_fix", "draft": "预约明天下五的会议", "instruction": "把下五改成下午", "gold": "预约明天下午的会议", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "fix_006", "bucket": "asr_fix", "draft": "播放七里香", "instruction": "把七里香改成晴天", "gold": "播放晴天", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "fix_007", "bucket": "asr_fix", "draft": "拨打幺二零", "instruction": "把幺二零改成一二零", "gold": "拨打一二零", "strict": true, "notes": "近音纠错", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "fix_008", "bucket": "asr_fix", "draft": "打开卫心", "instruction": "把卫心改成微信", "gold": "打开微信", "strict": true, "notes": "近音纠错", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "fix_009", "bucket": "asr_fix", "draft": "设置闹中七点", "instruction": "把闹中改成闹钟", "gold": "设置闹钟七点", "strict": true, "notes": "近音纠错", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "fix_010", "bucket": "asr_fix", "draft": "查询上证指树", "instruction": "把指树改成指数", "gold": "查询上证指数", "strict": true, "notes": "近音纠错", "engine": "qwen_design", "voice": "design", "instruct": "青年女声，活泼一点，语速中等"}
+{"id": "fix_011", "bucket": "asr_fix", "draft": "关闭车窗", "instruction": "把车窗改成窗帘", "gold": "关闭窗帘", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "fix_012", "bucket": "asr_fix", "draft": "导航到公词", "instruction": "把公词改成公司", "gold": "导航到公司", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "fix_013", "bucket": "asr_fix", "draft": "打开支府宝", "instruction": "把支府宝改成支付宝", "gold": "打开支付宝", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "fix_014", "bucket": "asr_fix", "draft": "播放周杰轮的歌", "instruction": "把周杰轮改成周杰伦", "gold": "播放周杰伦的歌", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "fix_015", "bucket": "asr_fix", "draft": "提醒我吃要", "instruction": "把吃要改成吃药", "gold": "提醒我吃药", "strict": true, "notes": "近音纠错", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "mul_001", "bucket": "multi", "draft": "打开客厅的灯和窗帘", "instruction": "把灯改成空调，把窗帘改成窗户", "gold": "打开客厅的空调和窗户", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "mul_002", "bucket": "multi", "draft": "明天去上海见小明", "instruction": "把上海改成北京，把小明改成小红", "gold": "明天去北京见小红", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "mul_003", "bucket": "multi", "draft": "播放周杰伦的七里香", "instruction": "把周杰伦改成邓紫棋，把七里香改成光年之外", "gold": "播放邓紫棋的光年之外", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "mul_004", "bucket": "multi", "draft": "设置闹钟七点半提醒开会", "instruction": "把七点半改成八点，把开会改成吃药", "gold": "设置闹钟八点提醒吃药", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "mul_005", "bucket": "multi", "draft": "导航去公司然后打开微信", "instruction": "把公司改成机场，把微信改成电话", "gold": "导航去机场然后打开电话", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰，语速中等"}
+{"id": "mul_006", "bucket": "multi", "draft": "查询明天北京天气", "instruction": "把明天改成后天，把北京改成上海", "gold": "查询后天上海天气", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "mul_007", "bucket": "multi", "draft": "打开卧室的灯和空调", "instruction": "把卧室改成客厅，把空调改成窗帘", "gold": "打开客厅的灯和窗帘", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "mul_008", "bucket": "multi", "draft": "发消息给张三说我到了", "instruction": "把张三改成李四，把我到了改成晚点到", "gold": "发消息给李四说晚点到", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "mul_009", "bucket": "multi", "draft": "预约明天下午三点会议室", "instruction": "把明天下午改成后天上午，把三点改成十点", "gold": "预约后天上午十点会议室", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "mul_010", "bucket": "multi", "draft": "关闭所有灯和音乐", "instruction": "把灯改成窗户，把音乐改成空调", "gold": "关闭所有窗户和空调", "strict": false, "metric": "cer", "notes": "多处修改", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "nop_001", "bucket": "noop", "draft": "打开窗帘", "instruction": "今天天气怎么样", "gold": "打开窗帘", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "nop_002", "bucket": "noop", "draft": "导航去公司", "instruction": "给我讲个笑话", "gold": "导航去公司", "strict": true, "notes": "应保持草稿", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "nop_003", "bucket": "noop", "draft": "播放音乐", "instruction": "你是谁", "gold": "播放音乐", "strict": true, "notes": "应保持草稿", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "nop_004", "bucket": "noop", "draft": "设置闹钟七点", "instruction": "一二三四五", "gold": "设置闹钟七点", "strict": true, "notes": "应保持草稿", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "nop_005", "bucket": "noop", "draft": "查询天气", "instruction": "谢谢你", "gold": "查询天气", "strict": true, "notes": "应保持草稿", "engine": "qwen_design", "voice": "design", "instruct": "成年男声，平稳口语，语速稍慢"}
+{"id": "nop_006", "bucket": "noop", "draft": "打开微信", "instruction": "嗯", "gold": "打开微信", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "nop_007", "bucket": "noop", "draft": "关闭空调", "instruction": "好的收到", "gold": "关闭空调", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "nop_008", "bucket": "noop", "draft": "提醒我开会", "instruction": "哈哈哈", "gold": "提醒我开会", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "nop_009", "bucket": "noop", "draft": "拨打一二零", "instruction": "无关指令测试", "gold": "拨打一二零", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "nop_010", "bucket": "noop", "draft": "发送消息", "instruction": "把香蕉变成苹果", "gold": "发送消息", "strict": true, "notes": "应保持草稿", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "par_001", "bucket": "paraphrase", "draft": "帮我开一下灯", "instruction": "说正式一点", "gold": "请帮我打开灯", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "par_002", "bucket": "paraphrase", "draft": "查下明天天气", "instruction": "改成完整句子", "gold": "请查询明天的天气", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "par_003", "bucket": "paraphrase", "draft": "导航公司", "instruction": "改成更清楚", "gold": "导航到公司", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "par_004", "bucket": "paraphrase", "draft": "音量大一点", "instruction": "改成具体指令", "gold": "把音量调大一点", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "par_005", "bucket": "paraphrase", "draft": "开会改明天", "instruction": "改成完整说法", "gold": "把会议改到明天", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "qwen_design", "voice": "design", "instruct": "青年女声，活泼一点，语速中等"}
+{"id": "par_006", "bucket": "paraphrase", "draft": "发消息说晚点", "instruction": "补全对象小明", "gold": "发消息给小明说晚点", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "par_007", "bucket": "paraphrase", "draft": "关窗", "instruction": "说完整一点", "gold": "请关闭窗户", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "par_008", "bucket": "paraphrase", "draft": "订票去上海", "instruction": "改成更规范", "gold": "请预订去上海的票", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "par_009", "bucket": "paraphrase", "draft": "闹钟七点", "instruction": "改成完整指令", "gold": "请设置七点的闹钟", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "par_010", "bucket": "paraphrase", "draft": "播周杰伦", "instruction": "说完整一点", "gold": "请播放周杰伦的歌", "strict": false, "metric": "cer", "notes": "改写风格", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "hrd_001", "bucket": "hard", "draft": "帮我预订明天下午三点十分从北京南到上海虹桥的高铁二等座", "instruction": "把北京南改成天津西", "gold": "帮我预订明天下午三点十分从天津西到上海虹桥的高铁二等座", "strict": true, "notes": "长句专名数字", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "hrd_002", "bucket": "hard", "draft": "把会议室预定为二零二六年九月二十七日上午九点到十一点", "instruction": "把九月二十七日改成九月二十八日", "gold": "把会议室预定为二零二六年九月二十八日上午九点到十一点", "strict": true, "notes": "长句专名数字", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "hrd_003", "bucket": "hard", "draft": "查询沪深三百和上证指数今天的涨跌幅", "instruction": "把沪深三百改成创业板指", "gold": "查询创业板指和上证指数今天的涨跌幅", "strict": true, "notes": "长句专名数字", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "hrd_004", "bucket": "hard", "draft": "导航到深圳市南山区科技园南区A座地下停车场B3层", "instruction": "把B3改成B2", "gold": "导航到深圳市南山区科技园南区A座地下停车场B2层", "strict": true, "notes": "长句专名数字", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "hrd_005", "bucket": "hard", "draft": "提醒我每周一三五早上七点半服药并记录血压", "instruction": "把七点半改成八点", "gold": "提醒我每周一三五早上八点服药并记录血压", "strict": true, "notes": "长句专名数字", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰，语速中等"}
+{"id": "gly_001", "bucket": "glyph", "draft": "到的了", "instruction": "把白字旁的的修改为提土旁的地", "gold": "到地了", "strict": true, "notes": "双侧偏旁", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "gly_002", "bucket": "glyph", "draft": "请你过来", "instruction": "把言字旁的请改成三点水的清", "gold": "清你过来", "strict": true, "notes": "双侧偏旁", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "gly_003", "bucket": "glyph", "draft": "她去了", "instruction": "把女字旁的她改成单人旁的他", "gold": "他去了", "strict": true, "notes": "双侧偏旁", "engine": "edge", "voice": "zh-CN-XiaoyiNeural"}
+{"id": "gly_004", "bucket": "glyph", "draft": "他是猫", "instruction": "把单人旁的他改成宝盖头的它", "gold": "它是猫", "strict": true, "notes": "双侧偏旁", "engine": "edge", "voice": "zh-CN-YunjianNeural"}
+{"id": "gly_005", "bucket": "glyph", "draft": "做完了", "instruction": "把单人旁的做改成立人旁的作", "gold": "作完了", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "gly_006", "bucket": "glyph", "draft": "杨树", "instruction": "把木字旁的杨改成提手旁的扬", "gold": "扬树", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "gly_007", "bucket": "glyph", "draft": "晴天", "instruction": "把日字旁的晴改成青字底的情", "gold": "情天", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "gly_008", "bucket": "glyph", "draft": "问他", "instruction": "把门字框的问改成口字旁的吗", "gold": "吗他", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "gly_009", "bucket": "glyph", "draft": "很忙", "instruction": "把双人旁的很改成心字底的恨", "gold": "恨忙", "strict": true, "notes": "双侧偏旁", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰，语速中等"}
+{"id": "gly_010", "bucket": "glyph", "draft": "红了", "instruction": "把绞丝旁的红改成王字旁的玩", "gold": "玩了", "strict": true, "notes": "双侧偏旁", "engine": "qwen_design", "voice": "design", "instruct": "成年男声，平稳口语"}
+{"id": "gly_011", "bucket": "glyph", "draft": "这是", "instruction": "把走之底的这改成言字旁的说", "gold": "说是", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "gly_012", "bucket": "glyph", "draft": "等一下", "instruction": "把竹字头的等改成土字旁的地", "gold": "地一下", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "gly_013", "bucket": "glyph", "draft": "空的", "instruction": "把穴字头的空改成工字旁的功", "gold": "功的", "strict": true, "notes": "双侧偏旁", "engine": "qwen_custom", "voice": "Vivian"}
+{"id": "gly_014", "bucket": "glyph", "draft": "到的了", "instruction": "把的改成提土旁的地", "gold": "到地了", "strict": true, "notes": "只描述目标", "engine": "edge", "voice": "zh-CN-XiaoxiaoNeural"}
+{"id": "gly_015", "bucket": "glyph", "draft": "再公司见", "instruction": "把再改成土字底的在", "gold": "在公司见", "strict": true, "notes": "只描述目标", "engine": "edge", "voice": "zh-CN-YunxiNeural"}
+{"id": "gly_016", "bucket": "glyph", "draft": "做业", "instruction": "把做改成单人旁的作", "gold": "作业", "strict": true, "notes": "只描述目标", "engine": "qwen_custom", "voice": "Ryan"}
+{"id": "gly_017", "bucket": "glyph", "draft": "已知道", "instruction": "把已改成自己的己", "gold": "己知道", "strict": true, "notes": "只描述目标", "engine": "qwen_custom", "voice": "Aiden"}
+{"id": "gly_018", "bucket": "glyph", "draft": "到的了", "instruction": "把的改成土也地", "gold": "到地了", "strict": true, "notes": "拆字口诀", "engine": "qwen_design", "voice": "design", "instruct": "成年女声，口语清晰"}
+{"id": "gly_019", "bucket": "glyph", "draft": "做完", "instruction": "把做改成单人作", "gold": "作完", "strict": true, "notes": "拆字口诀", "engine": "qwen_custom", "voice": "Serena"}
+{"id": "num_001", "bucket": "num", "draft": "拨打一二零", "instruction": "嗯", "gold": "拨打120", "strict": true, "notes": "中文数字显示", "engine": "oracle", "voice": ""}
+{"id": "num_002", "bucket": "num", "draft": "一加一等于二", "instruction": "嗯", "gold": "1 + 1 = 2", "strict": true, "notes": "口语算式", "engine": "oracle", "voice": ""}
+{"id": "num_003", "bucket": "num", "draft": "百分之二十", "instruction": "嗯", "gold": "20%", "strict": true, "notes": "百分数", "engine": "oracle", "voice": ""}
+{"id": "num_004", "bucket": "num", "draft": "今天下午三点十分开会", "instruction": "嗯", "gold": "今天下午3:10开会", "strict": true, "notes": "时间", "engine": "oracle", "voice": ""}
+{"id": "num_005", "bucket": "num", "draft": "记住井号和艾特", "instruction": "嗯", "gold": "记住#和@", "strict": true, "notes": "符号词", "engine": "oracle", "voice": ""}

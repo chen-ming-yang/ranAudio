@@ -1,0 +1,22 @@
+{
+  "splits": {
+    "train": {
+      "src": "/cmy/cmy/ranAudio/kimi/eval_spoken2written/expanded/train.jsonl",
+      "dst": "/cmy/cmy/ranAudio/kimi/eval_spoken2written/sft/train.jsonl",
+      "n_in": 17087,
+      "n_out": 17008,
+      "n_skip_empty": 0,
+      "n_skip_same": 79
+    },
+    "val": {
+      "src": "/cmy/cmy/ranAudio/kimi/eval_spoken2written/expanded/val.jsonl",
+      "dst": "/cmy/cmy/ranAudio/kimi/eval_spoken2written/sft/val.jsonl",
+      "n_in": 2138,
+      "n_out": 2137,
+      "n_skip_empty": 0,
+      "n_skip_same": 1
+    }
+  },
+  "user_tmpl": "口语转书面：\n{content}",
+  "skip_identical": true
+}
