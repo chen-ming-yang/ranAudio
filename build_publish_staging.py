@@ -84,17 +84,7 @@ SPECS: list[tuple[str, list[tuple[str, str]], set[str]]] = [
     ),
     # 4) cdsd MoE LoRA（10 个 run 的 final ckpt + dense_lora）
     ("cdsd-moe-lora", [], set()),
-    # 5) speechsec ST
-    (
-        "speechsec-st",
-        [
-            ("speechsec/checkpoints/st/best.pt", "best.pt"),
-            ("speechsec/checkpoints/st/train_20260516_041603.log", "train.log"),
-            ("speechsec/LICENSE", "LICENSE"),
-        ],
-        set(),
-    ),
-    # 6) MeanSE MeanFlow
+    # 5) MeanSE MeanFlow
     (
         "MeanSE-meanflow",
         [

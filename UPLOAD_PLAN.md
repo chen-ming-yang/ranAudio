@@ -68,7 +68,7 @@
 | 内容 | 渠道 | 状态 |
 |------|------|------|
 | Tier-A 三方一致数据集（10 分片 / 1,015.6 万条 / 6,190.72 h / 3.66 GiB） | ModelScope `chenhaha12315/wenet-speech-L-filter` | ✅ 已发布 |
-| 8 个模型发布包（95.47 GiB / 357 文件） | 本地 `/cmy/publish_ms` 暂存 | ⏸ 待你确认后上传 |
+| 7 个模型发布包（94.57 GiB / 361 文件） | 本地 `/cmy/publish_ms` 暂存 | ⏸ 待你确认后上传 |
 
 ---
 
@@ -181,23 +181,15 @@
 | **建议** | ⚠️ **P2**。官方 `Qwen/Qwen3.5-0.8B` 已有高下载量，派生版价值中等 |
 | **勾选** | ☐ 上传两个　☐ 只传 `merged-v4`　☐ 跳过 |
 
-### A8. `speechsec-st` — 语音安全模型
-
-| 项 | 内容 |
-|---|---|
-| **是什么** | SpeechSEC（Interspeech 2025 非官方实现）的单任务最佳 checkpoint |
-| **体积** | **0.90 GiB** / 3 文件 |
-| **结构** | `best.pt` + `train.log` + `LICENSE` |
-| **用途** | 语音合成 / 编辑 / 续写统一框架 |
-| **许可证** | **MIT**（本项目独立实现，非官方） |
-| **建议** | ⚠️ **P1**。需在模型卡片写明「非官方实现」 |
-| **勾选** | ☐ 上传　☐ 跳过 |
+> **已排除：`speechsec-st`（语音安全模型）** — 按 2026-11-21 决定不上传
+> ModelScope。本地 `speechsec/` 仓库与 `LICENSE`（MIT）仍保留，
+> 仅不进发布包；模型卡片已移至 `modelscope_cards/_not_publishing/`。
 
 ### A 类小结
 
 | 勾选组合 | 总体积 |
 |---|---|
-| 全部 8 个 | **95.47 GiB** |
+| 全部 7 个 | **94.57 GiB** |
 | 精简版（A1+A3主实验+A4+A5+A6best） | 约 **54 GiB** |
 | 最小可用（A1+A4） | 约 **41 GiB** |
 
@@ -279,10 +271,10 @@
 | # | 事项 | 动作 | 状态 |
 |---|------|------|------|
 | 1 | 许可证/文档 push 到 GitHub（6 仓库 9 个 commit） | `git push` × 6 | ✅ 已完成 |
-| 2 | 8 个 ModelScope 仓库的 **README 模型卡片** | 已生成于 `modelscope_cards/`，并注入发布目录 | ✅ 已完成 |
+| 2 | 7 个 ModelScope 仓库的 **README 模型卡片** | 已生成于 `modelscope_cards/`，并注入发布目录 | ✅ 已完成 |
 
-> 卡片已随 `build_publish_staging.py` 自动注入，8 个发布仓库根目录均有 `README.md`，
-> YAML 头 `license` 字段与许可证一致（7 个 `apache-2.0`，`speechsec-st` 为 `mit`）。
+> 卡片已随 `build_publish_staging.py` 自动注入，7 个发布仓库根目录均有 `README.md`，
+> YAML 头 `license` 字段统一为 `apache-2.0`。
 
 ### 6.2 模型上传（A 类）
 
@@ -295,7 +287,6 @@
 | A5 | `ranAudio-s15-asr` | 5.02 GiB | ☐ |
 | A6 | `MeanSE-meanflow` | 4.93 GiB | ☐ |
 | A7 | `qwen3.5-0.8b-merged` | 2.86 GiB | ☐ |
-| A8 | `speechsec-st` | 0.90 GiB | ☐ |
 
 ### 6.3 数据集发布（B 类）
 
@@ -323,7 +314,7 @@
 ✅ 第 1 步  许可证/文档 push 到 6 个仓库        （已完成，9 个 commit）
 ✅ 第 2 步  生成 A 类模型卡片（8 份）           （已完成）
    第 3 步  上传 A1 / A3 / A4（价值最高、体积适中）  （约 49 GiB）
-   第 4 步  上传 A5 / A6 / A8                      （约 11 GiB）
+   第 4 步  上传 A5 / A6                           （约 10 GiB）
    第 5 步  视反馈决定 A2 / A7                     （约 36 GiB）
    第 6 步  OSS 备份 C1 → C3 → C2 → C4             （约 875 GB）
 ```
@@ -334,11 +325,10 @@
 
 | 风险 | 说明 |
 |------|------|
-| **ModelScope 需先建仓** | 8 个仓库需在 `chenhaha12315` 下先创建，否则 `upload_folder` 报 404 |
+| **ModelScope 需先建仓** | 7 个仓库需在 `chenhaha12315` 下先创建，否则 `upload_folder` 报 404 |
 | **单文件 ≤ 50 GB** | 现有最大单文件 4.69 GB，✅ 无风险 |
 | **文件数 ≤ 10 万** | 最多 109 文件，✅ 无风险 |
 | **`qwen3.5-0.8b-merged` 顶层无 LICENSE** | 仅在 `merged/`、`merged-v4/` 子目录内，建议上传时补一份到顶层 |
-| **`speechsec` 非官方实现** | 模型卡片必须写明，避免误导 |
 | **GLM-4-Voice 权重** | 自定义协议。**已在 `.gitignore` 排除**，不入库、不上传；代码部分是 Apache-2.0（Zhipu AI），可正常分发 |
 | **`data/char_align`** | 159 MB / 1270 wav，已加入 `.gitignore`，不随仓库分发 |
 | **`MODELSCOPE_MAP.md` 含绝对路径** | 若公开 `ranAudio` 仓库，需先把 `/cmy/cmy/...` 改为相对路径 |
