@@ -61,6 +61,7 @@ SPECS: list[tuple[str, list[tuple[str, str]], set[str]]] = [
         [
             ("Qwen/Qwen3.5-0.8B-merged", "merged"),
             ("Qwen/Qwen3.5-0.8B-merged-v4", "merged-v4"),
+            ("Qwen/Qwen3.5-0.8B-merged/LICENSE", "LICENSE"),
         ],
         {"*.gguf", "stale_base_shards/*"},
     ),
