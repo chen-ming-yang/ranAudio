@@ -139,3 +139,18 @@ $PY -m ranAudio.sweep_asr_weight --max-samples 200 --max-steps 200
 | S2 route LoRA | `runs/s2_route/` |
 | S2 全参（当前） | `runs/s2_fc_nofc_full/mix_boundary/` |
 | 评测 JSON | `tmp/` |
+
+---
+
+## License
+
+本仓库自有代码以 **Apache License 2.0** 发布，见 [LICENSE](LICENSE)。
+
+仓库内包含多个第三方组件（Kimi-Audio、CosyVoice、BigVGAN、Whisper、GLM-4-Voice 等），
+各自保留原始许可证，**不适用**本仓库的 Apache-2.0 条款。
+
+> **GLM-4-Voice 需注意**：其**代码**为 Apache-2.0（Zhipu AI），可随本仓库分发；
+> 其 **tokenizer 权重**（1.4 GB）为自定义协议（学术免费、商用需登记、不可再许可），
+> 已由 `.gitignore` 排除，**不在本仓库中**，请自行前往智谱官方渠道下载。
+
+详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
