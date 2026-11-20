@@ -216,6 +216,14 @@ def main() -> int:
     args = ap.parse_args()
 
     expand_dynamic()
+
+    # 模型卡片：把 modelscope_cards/<repo>/README.md 注入到各发布仓库根目录
+    cards_dir = BASE / "ranAudio" / "modelscope_cards"
+    for _repo, _srcs, _extra in SPECS:
+        _card = cards_dir / _repo / "README.md"
+        if _card.exists():
+            _srcs.append((str(_card), "README.md"))
+
     manifest: list[tuple[str, str, int]] = []
     missing: list[str] = []
     grand = 0
