@@ -8,32 +8,49 @@
 
 ## 0. 先回答你问的两个问题
 
-### 0.1 代码都提交到 GitHub 了吗？—— ✅ **已全部推送（2026-11-21 00:5x 完成）**
+### 0.1 代码都提交到 GitHub 了吗？—— ✅ **是的，代码本来就在**
 
-六仓库工作区全部干净，远端 HEAD 已用 GitHub API 逐个核对，与本机完全一致：
+> **先纠正我上一版文档里的一个误判**：我当时说「有 12 个 commit 未推送」，
+> 这是错的。真实原因是 **本地 remote-tracking 引用（`refs/remotes/origin/main`）滞后**
+> （长期没有 `git fetch`），所以 `git status` 误报「ahead=2」。
+>
+> 我用 GitHub API 逐个查询了那些「未推送」的 commit，**6 个仓库的前一条 commit
+> 全部返回 HTTP 200，即早就在远端**。真正没上 GitHub 的只有**本轮新建的许可证与文档**。
 
-| 仓库 | 远端 main | 状态 |
-|------|-----------|------|
-| `MeanSE` | `4e32a56` | ✅ |
-| `real-asr` | `775636d` | ✅ |
-| `cdsd` | `7ab6e72` | ✅ |
-| `speech-sec` | `3f3c3ff` | ✅ |
-| `Qwen3-ASR` | `bf9b5b2` | ✅ |
-| `ranAudio` | `761f47d` | ✅ |
+**本轮实际新推 9 个 commit：**
 
-> 本轮共推送 6 个仓库、13 个 commit（每个仓库 2 个既有改动 + 许可证/文档）。
-> `ranAudio` 因新增模型卡片与本文档，比其它仓库多 1 个 commit。
+| 仓库 | 新推 commit | 内容 |
+|------|-------------|------|
+| `MeanSE` | `4e32a56` | LICENSE + NOTICE + README License 段 |
+| `real-asr` | `775636d` | LICENSE + NOTICE + README License 段 |
+| `cdsd` | `7ab6e72` | LICENSE + NOTICE + Readme License 段 |
+| `speech-sec` | `3f3c3ff` | MIT LICENSE + README License 段 |
+| `Qwen3-ASR` | `bf9b5b2` | NOTICE（划分上游/本 fork 范围） |
+| `ranAudio` | `226b6a7`、`ae6257e`、`761f47d`、`b457219` | LICENSE + THIRD_PARTY_NOTICES + 上传决策表 + 8 份模型卡片 |
 
-**推送过程中遇到的问题（已解决）**：
+**当前六仓库远端 HEAD（已用 API 核对，与本机一致）：**
+
+| 仓库 | 远端 main | 工作区 |
+|------|-----------|--------|
+| `MeanSE` | `4e32a56` | ✅ 干净 |
+| `real-asr` | `775636d` | ✅ 干净 |
+| `cdsd` | `7ab6e72` | ✅ 干净 |
+| `speech-sec` | `3f3c3ff` | ✅ 干净 |
+| `Qwen3-ASR` | `bf9b5b2` | ✅ 干净 |
+| `ranAudio` | `b457219` | ✅ 干净 |
+
+**推送过程中遇到的问题（已解决，供以后参考）**：
 
 1. 仓库 remote 混用三种形式：`git@github.com:`（SSH）、`https://github.com/`、
-   `https://gh-proxy.org/`（镜像代理）。
+   `https://gh-proxy.org/`（克隆镜像）。
 2. SSH 密钥**未被 GitHub 授权**（`Permission denied (publickey)`）；
-   `gh` CLI 未安装；无 `~/.git-credentials`。
+   `gh` CLI 未安装；无 `~/.git-credentials`。**因此 SSH 方式无法推送。**
 3. 解决方式：用 PAT 直接推送到 `https://github.com/...`，token 只出现在命令行，
-   **未写入 git config、未落盘**。
-4. 注意：`real-asr` 的 remote 仍是 `gh-proxy.org` 镜像地址，
-   **下次推送需同样改用直连 GitHub**，否则会失败。
+   **未写入 git config、未落盘**。推送途中遇到两次 TLS 抖动与一次认证失败，
+   重试均成功。
+4. ⚠️ `real-asr` 的 remote 仍是 `gh-proxy.org` 镜像地址，
+   **下次推送仍需改用直连 GitHub**，否则会失败。
+5. 建议以后定期 `git fetch origin`，避免 tracking 引用滞后造成状态误判。
 
 其余仓库状态（供参考，多数是第三方 fork 或无需处理）：
 
@@ -261,7 +278,7 @@
 
 | # | 事项 | 动作 | 状态 |
 |---|------|------|------|
-| 1 | 6 个仓库共 13 个 commit 推送到 GitHub | `git push` × 6 | ✅ 已完成 |
+| 1 | 许可证/文档 push 到 GitHub（6 仓库 9 个 commit） | `git push` × 6 | ✅ 已完成 |
 | 2 | 8 个 ModelScope 仓库的 **README 模型卡片** | 已生成于 `modelscope_cards/`，并注入发布目录 | ✅ 已完成 |
 
 > 卡片已随 `build_publish_staging.py` 自动注入，8 个发布仓库根目录均有 `README.md`，
@@ -303,7 +320,7 @@
 ## 7. 建议执行顺序
 
 ```
-✅ 第 1 步  推送 6 个仓库的 13 个 commit        （已完成）
+✅ 第 1 步  许可证/文档 push 到 6 个仓库        （已完成，9 个 commit）
 ✅ 第 2 步  生成 A 类模型卡片（8 份）           （已完成）
    第 3 步  上传 A1 / A3 / A4（价值最高、体积适中）  （约 49 GiB）
    第 4 步  上传 A5 / A6 / A8                      （约 11 GiB）
