@@ -8,21 +8,32 @@
 
 ## 0. 先回答你问的两个问题
 
-### 0.1 代码都提交到 GitHub 了吗？—— **没有，还差 12 个 commit**
+### 0.1 代码都提交到 GitHub 了吗？—— ✅ **已全部推送（2026-11-21 00:5x 完成）**
 
-六仓库工作区已全部干净（无未提交改动），但每个仓库都有 **2 个本地 commit 尚未推送**：
+六仓库工作区全部干净，远端 HEAD 已用 GitHub API 逐个核对，与本机完全一致：
 
-| 仓库 | 待推送 commit | 远程 |
-|------|---------------|------|
-| `MeanSE` | `4e32a56` 补 LICENSE/NOTICE<br>`7f1abbd` 更新数据/推理/训练脚本 | `github.com/chen-ming-yang/MeanSE` |
-| `ranAudio` | `226b6a7` 补 LICENSE/第三方声明<br>`b97cc64` WenetSpeech-L 三方一致数据 + kimi 文字规范 | `git@github.com:chen-ming-yang/ranAudio` |
-| `ranAudio/cdsd` | `7ab6e72` 补 LICENSE/NOTICE<br>`0c5c086` MoE 双视图个性化 ASR | `github.com/chen-ming-yang/cdsd` |
-| `speechsec` | `3f3c3ff` 补 MIT LICENSE<br>`938dd16` 本地实验笔记 | `git@github.com:chen-ming-yang/speech-sec` |
-| `real-asr` | `775636d` 补 LICENSE/NOTICE<br>`b49fcad` RNNT/CTC 配置 + icefall 编码器 | `github.com/chen-ming-yang/real-asr` |
-| `Qwen3-ASR` | `bf9b5b2` 新增 NOTICE<br>`5e08156` LoRA 微调脚本 + 0614 数据清单 | `git@github.com:chen-ming-yang/Qwen3-ASR` |
+| 仓库 | 远端 main | 状态 |
+|------|-----------|------|
+| `MeanSE` | `4e32a56` | ✅ |
+| `real-asr` | `775636d` | ✅ |
+| `cdsd` | `7ab6e72` | ✅ |
+| `speech-sec` | `3f3c3ff` | ✅ |
+| `Qwen3-ASR` | `bf9b5b2` | ✅ |
+| `ranAudio` | `761f47d` | ✅ |
 
-> 每个仓库的前一条 commit 是**更早的代码改动**，一直没推送；后一条才是今天的许可证。
-> 也就是说：**不只许可证没上 GitHub，之前的代码改动也还没上。**
+> 本轮共推送 6 个仓库、13 个 commit（每个仓库 2 个既有改动 + 许可证/文档）。
+> `ranAudio` 因新增模型卡片与本文档，比其它仓库多 1 个 commit。
+
+**推送过程中遇到的问题（已解决）**：
+
+1. 仓库 remote 混用三种形式：`git@github.com:`（SSH）、`https://github.com/`、
+   `https://gh-proxy.org/`（镜像代理）。
+2. SSH 密钥**未被 GitHub 授权**（`Permission denied (publickey)`）；
+   `gh` CLI 未安装；无 `~/.git-credentials`。
+3. 解决方式：用 PAT 直接推送到 `https://github.com/...`，token 只出现在命令行，
+   **未写入 git config、未落盘**。
+4. 注意：`real-asr` 的 remote 仍是 `gh-proxy.org` 镜像地址，
+   **下次推送需同样改用直连 GitHub**，否则会失败。
 
 其余仓库状态（供参考，多数是第三方 fork 或无需处理）：
 
@@ -248,10 +259,13 @@
 
 ### 6.1 立即要做的
 
-| # | 事项 | 动作 | 勾选 |
+| # | 事项 | 动作 | 状态 |
 |---|------|------|------|
-| 1 | 6 个仓库共 12 个 commit 推送到 GitHub | `git push` × 6 | ☐ |
-| 2 | 8 个 ModelScope 仓库的 **README 模型卡片** | 我生成，你审 | ☐ |
+| 1 | 6 个仓库共 13 个 commit 推送到 GitHub | `git push` × 6 | ✅ 已完成 |
+| 2 | 8 个 ModelScope 仓库的 **README 模型卡片** | 已生成于 `modelscope_cards/`，并注入发布目录 | ✅ 已完成 |
+
+> 卡片已随 `build_publish_staging.py` 自动注入，8 个发布仓库根目录均有 `README.md`，
+> YAML 头 `license` 字段与许可证一致（7 个 `apache-2.0`，`speechsec-st` 为 `mit`）。
 
 ### 6.2 模型上传（A 类）
 
@@ -289,12 +303,12 @@
 ## 7. 建议执行顺序
 
 ```
-第 1 步  推送 6 个仓库的 12 个 commit          （秒级）
-第 2 步  生成并审阅 A 类模型卡片              （可并行）
-第 3 步  上传 A1 / A3 / A4（价值最高、体积适中）  （约 49 GiB）
-第 4 步  上传 A5 / A6 / A8
-第 5 步  视反馈决定 A2 / A7
-第 6 步  OSS 备份 C1 → C3 → C2 → C4
+✅ 第 1 步  推送 6 个仓库的 13 个 commit        （已完成）
+✅ 第 2 步  生成 A 类模型卡片（8 份）           （已完成）
+   第 3 步  上传 A1 / A3 / A4（价值最高、体积适中）  （约 49 GiB）
+   第 4 步  上传 A5 / A6 / A8                      （约 11 GiB）
+   第 5 步  视反馈决定 A2 / A7                     （约 36 GiB）
+   第 6 步  OSS 备份 C1 → C3 → C2 → C4             （约 875 GB）
 ```
 
 ---
